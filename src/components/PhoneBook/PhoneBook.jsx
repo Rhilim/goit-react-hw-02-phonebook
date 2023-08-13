@@ -5,14 +5,13 @@ import {
   StyledButton,
   StyledError,
   StyledField,
-  StyledForm,
-  StyledTitle,
+  StyledForm
 } from 'components/PhoneBook/PhoneBook.styled';
 
 export const PhoneBook = ({ onAdd }) => {
   return (
     <>
-      <StyledTitle>Phonebook</StyledTitle>
+      
       <Formik
         initialValues={{
           contacts: [],
