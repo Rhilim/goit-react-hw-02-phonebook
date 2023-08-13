@@ -21,7 +21,7 @@ export const PhoneBook = ({ onAdd }) => {
         }}
         onSubmit={(values, actions) => {
           console.log(values)
-          onAdd({ ...values, id: nanoid() });
+          onAdd({...values, id: nanoid()} );
           actions.resetForm();
         }}
       >

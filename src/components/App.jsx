@@ -5,6 +5,7 @@ import { PhoneBook } from './PhoneBook/PhoneBook';
 export class App extends Component {
   state = {
     contacts: [],
+    filter: '',
     name: '',
     number: '',
   };
@@ -17,12 +18,21 @@ export class App extends Component {
     });
   };
 
-  render() {
+  changeFilter = newValue => {
+    this.setState({
+      filter: newValue,
+    })
+    // console.log(newValue)
+  };
 
+  render() {
+    const { contacts, filter } = this.state;
+
+    const visibleNames = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLocaleLowerCase()))
     return (
       <>
         <PhoneBook onAdd={this.addName} />
-        <Contacts array={this.state.contacts}/>
+        <Contacts array={visibleNames} filter={filter} onChangeFilter={this.changeFilter}/>
       </>
     );
   }
