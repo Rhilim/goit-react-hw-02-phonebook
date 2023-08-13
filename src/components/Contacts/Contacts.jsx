@@ -7,7 +7,7 @@ export const Contacts = ({ array }) => {
       <StyledTitle>Contacts</StyledTitle>
       <ul>
         {array.map(el => (
-          <li>{el.name}</li>
+          <li>{el.name}: {el.number}</li>
         ))}
       </ul>
     </>

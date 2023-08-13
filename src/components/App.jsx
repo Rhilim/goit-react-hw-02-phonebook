@@ -6,6 +6,7 @@ export class App extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
   };
 
   addName = newName => {
