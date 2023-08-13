@@ -24,8 +24,7 @@ export const PhoneBook = ({ onAdd }) => {
         }}
       >
         <StyledForm>
-          <label htmlFor="firstName">
-            Name
+          <label> Name  </label>
             <StyledField
               id="firstName"
               placeholder="Jane"
@@ -36,7 +35,7 @@ export const PhoneBook = ({ onAdd }) => {
               required
             />
             <StyledError name="name" component="div" />
-          </label>
+        
           <StyledButton type="submit">Add contact</StyledButton>
         </StyledForm>
       </Formik>
