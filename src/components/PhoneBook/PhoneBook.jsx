@@ -5,13 +5,12 @@ import {
   StyledButton,
   StyledError,
   StyledField,
-  StyledForm
+  StyledForm,
 } from 'components/PhoneBook/PhoneBook.styled';
 
 export const PhoneBook = ({ onAdd }) => {
   return (
     <>
-      
       <Formik
         initialValues={{
           contacts: [],
@@ -19,8 +18,8 @@ export const PhoneBook = ({ onAdd }) => {
           number: '',
         }}
         onSubmit={(values, actions) => {
-          console.log(values)
-          onAdd({...values, id: nanoid()} );
+          onAdd({ ...values, id: nanoid() });
+
           actions.resetForm();
         }}
       >
@@ -28,7 +27,7 @@ export const PhoneBook = ({ onAdd }) => {
           <label> Name </label>
           <StyledField
             id="firstName"
-            placeholder="Jane"
+            placeholder="Jane Smith"
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я

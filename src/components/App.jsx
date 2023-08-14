@@ -16,18 +16,21 @@ export class App extends Component {
   };
 
   addName = newName => {
-    this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, newName],
-      };
-    });
+    const findContact = this.state.contacts.find(
+      item => item.name === newName.name
+    );
+
+    if (findContact) {
+      return alert(`${newName.name} is already added`);
+    } else {
+      this.setState({ contacts: [...this.state.contacts, newName] });
+    }
   };
 
   changeFilter = newValue => {
     this.setState({
       filter: newValue,
     });
-    // console.log(newValue)
   };
 
   render() {
@@ -36,6 +39,12 @@ export class App extends Component {
     const visibleNames = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
     );
+
+    // const equalName = contacts.find(contact =>
+    //   contact.name === this.newName.toLocaleLowerCase());
+
+    //   (equalName) && alert('name already exist');
+
     return (
       <>
         <StyledTitle>Phonebook</StyledTitle>
