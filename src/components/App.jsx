@@ -33,6 +33,18 @@ export class App extends Component {
     });
   };
 
+  handleDelete = contactId => {
+    this.setState(prevState => {
+      
+      return {
+        contacts: prevState.contacts.filter(
+          contact => contact.id !== contactId
+        ),
+        
+      };
+    });
+  };
+
   render() {
     const { contacts, filter } = this.state;
 
@@ -40,18 +52,13 @@ export class App extends Component {
       contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
     );
 
-    // const equalName = contacts.find(contact =>
-    //   contact.name === this.newName.toLocaleLowerCase());
-
-    //   (equalName) && alert('name already exist');
-
     return (
       <>
         <StyledTitle>Phonebook</StyledTitle>
         <PhoneBook onAdd={this.addName} />
         <StyledTitle>Contacts</StyledTitle>
         <Filter filter={filter} onChangeFilter={this.changeFilter} />
-        <Contacts array={visibleNames} />
+        <Contacts array={visibleNames} onDelete={this.handleDelete} />
       </>
     );
   }
