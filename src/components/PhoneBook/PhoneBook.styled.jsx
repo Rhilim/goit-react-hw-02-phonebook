@@ -24,7 +24,8 @@ background-color: skyblue;
 export const StyledButton = styled.button`
 padding: 4px;
 width: 100px;
-background-color: skyblue;
+background-color: #1E90FF;
+color: #fff;
 border: none;
 border-radius: 4px;
 `
